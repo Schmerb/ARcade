@@ -21,7 +21,7 @@ const H1 = styled.h1`
   position: absolute;
   font-family: ${props => props.fontFamily}
   font-size: ${props => props.fontSize}px;
-  left: ${props => props.left}px;
+  left: ${props => props.left}%;
   transform: translateY(${props => props.translateY}px);
 `
 
@@ -72,35 +72,13 @@ class Banner extends Component {
     this.state = {
       fontFamily: fonts[0][key],
       fontSize: 24,
-      left: 600,
+      left: 50,
       translateY: 0,
       url: '/add-game'
     }
 
     this.index = 0
     this.max = fonts.length - 1
-  }
-
-  handleLeft = (direction, fastForward = false) => {
-    const current = this.state.left
-    const next = direction === 'left' ? (fastForward ? -100 : -20) : (fastForward ? 100 : 20)
-    this.setState({ left: current + next })
-  }
-
-  handleTranslateY = (direction, fastForward = false) => {
-    const current = this.state.translateY
-    const max = 40
-    const min = -40
-
-    let next = direction === 'up' ? (fastForward ? -2 : -1) : (fastForward ? 2 : 1)
-
-    next = current + next
-    if (next > max) {
-      next = max
-    } else if (next < min) {
-      next = min
-    }
-    this.setState({ translateY: next })
   }
 
   handleNext = () => this.handleClick('next')
@@ -121,9 +99,6 @@ class Banner extends Component {
       this.index = nextIndex
     })
   }
-
-  handleFontPlus = () => this.setState({ fontSize: this.state.fontSize + 1 })
-  handleFontNeg = () => this.setState({ fontSize: this.state.fontSize - 1 })
 
   handleFontSize = (e) => {
     console.log(e.target.value)
@@ -168,11 +143,11 @@ class Banner extends Component {
             
             </li>
             <li>
-              <Label>left: {this.state.left}px</Label>
+              <Label>left: {this.state.left}%</Label>
               <input 
                 type='range' 
                 onChange={this.handleLeftPos}
-                min="0" max="1000" value={this.state.left} step="20" />
+                min="0" max="100" value={this.state.left} step="5" />
             </li>
             <li>
               <Label>translateY: {this.state.translateY}px</Label>
