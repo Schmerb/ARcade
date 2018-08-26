@@ -125,6 +125,21 @@ class Banner extends Component {
   handleFontPlus = () => this.setState({ fontSize: this.state.fontSize + 1 })
   handleFontNeg = () => this.setState({ fontSize: this.state.fontSize - 1 })
 
+  handleFontSize = (e) => {
+    console.log(e.target.value)
+    this.setState({ fontSize: e.target.value })
+  }
+
+  handleLeftPos = (e) => {
+    console.log(e.target.value)
+    this.setState({ left: e.target.value })
+  }
+
+  handleTranslateY = (e) => {
+    console.log(e.target.value)
+    this.setState({ translateY: e.target.value })
+  }
+
   render () {
     return (
       <MyHeader loginIsOpen={this.props.location === '/login'} className='App-header'>
@@ -148,25 +163,23 @@ class Banner extends Component {
               <Button onClick={this.handleNext} type='button'>next</Button>
             </li>
             <li>
-              <Button onClick={this.handleFontNeg} type='button'>-</Button>
               <Label>Font Size: {this.state.fontSize}px</Label>
-              <Button onClick={this.handleFontPlus} type='button'>+</Button>
+              <input type='range' onChange={this.handleFontSize} />
+            
             </li>
             <li>
-              <Button onDoubleClick={() => this.handleLeft('left', true)} onClick={() => this.handleLeft('left')} type='button'>Left</Button>
               <Label>left: {this.state.left}px</Label>
-              <Button onDoubleClick={() => this.handleLeft('right', true)} onClick={() => this.handleLeft('right')} type='button'>Right</Button>
+              <input 
+              type='range' 
+              onChange={this.handleLeftPos}
+              min="0" max="1000" value="600" step="20" />
             </li>
             <li>
-              <Button
-                onDoubleClick={() => this.handleTranslateY('up', true)}
-                onClick={() => this.handleTranslateY('up')}
-                type='button'>up</Button>
               <Label>translateY: {this.state.translateY}px</Label>
-              <Button
-                onDoubleClick={() => this.handleTranslateY('down', true)}
-                onClick={() => this.handleTranslateY('down')}
-                type='button'>down</Button>
+              <input 
+              type='range' 
+              onChange={this.handleTranslateY}
+              min="-40" max="40" value="0" step="5" />
             </li>
           </List>
         </div>
