@@ -58,7 +58,7 @@ const Label = styled.label`
 const List = styled.ul`
   position: absolute;
   top: 0;
-  right: 10px;
+  right: 30px;
   height: 100px;
   padding: 0;
   overflow: hidden;
@@ -170,16 +170,16 @@ class Banner extends Component {
             <li>
               <Label>left: {this.state.left}px</Label>
               <input 
-              type='range' 
-              onChange={this.handleLeftPos}
-              min="0" max="1000" value="600" step="20" />
+                type='range' 
+                onChange={this.handleLeftPos}
+                min="0" max="1000" value={this.state.left} step="20" />
             </li>
             <li>
               <Label>translateY: {this.state.translateY}px</Label>
               <input 
-              type='range' 
-              onChange={this.handleTranslateY}
-              min="-40" max="40" value="0" step="5" />
+                type='range' 
+                onChange={this.handleTranslateY}
+                min="-40" max="40" value={this.state.translateY} step="5" />
             </li>
           </List>
         </div>
