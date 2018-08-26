@@ -1,0 +1,48 @@
+html,
+body {
+  background-color: #555;
+  background-color: hotpink;
+  background-color: #107273;
+  background-image: linear-gradient(120deg, #107273 0%, #20b5b5 120%);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.App-header {
+  background-color: #107273;
+  background-image: linear-gradient(120deg, #107273 0%, #20b5b5 120%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 105px;
+}
+
+
+.title-wrap {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-title {
+  flex-grow: 1;
+  margin: 0;
+  align-self: center;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
